@@ -1,19 +1,32 @@
 name: Deploy MkDocs to GitHub Pages
-
 on:
   push:
     branches:
       - main
-
 permissions:
   contents: write
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Auto-set .pages titles from folder names
+        run: |
+          find docs -type d | while read dir; do
+            pages_file="$dir/.pages"
+            folder_name=$(basename "$dir")
+            if [ -f "$pages_file" ]; then
+              if grep -q "^title:" "$pages_file"; then
+                sed -i "s/^title:.*/title: $folder_name/" "$pages_file"
+              else
+                echo "title: $folder_name" >> "$pages_file"
+              fi
+            else
+              echo "title: $folder_name" > "$pages_file"
+            fi
+          done
 
       - name: Set up Python
         uses: actions/setup-python@v5

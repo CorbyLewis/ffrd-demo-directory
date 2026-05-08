@@ -1,6 +1,5 @@
 site_name: FFRD Demo Directory
 site_url: https://corbylewis.github.io/ffrd-demo-directory/
-
 theme:
   name: material
   palette:
@@ -8,25 +7,24 @@ theme:
     primary: black
     accent: blue
   features:
-    - navigation.sections
     - navigation.indexes
-    - toc.integrate
-
+    - navigation.sections
 plugins:
   - search
   - awesome-pages:
       filename: .pages
       collapse_single_pages: false
       strict: false
-
 markdown_extensions:
   - toc:
       permalink: true
+      toc_depth: 0
   - admonition
   - pymdownx.details
-
 extra_css:
   - stylesheets/extra.css
-
 extra:
   generator: false
+
+docs_dir: docs
+use_directory_urls: true
