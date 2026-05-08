@@ -1,0 +1,39 @@
+/* Hierarchy tree lines in sidebar */
+.md-nav__list .md-nav__list {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.md-nav__list .md-nav__list::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.md-nav__list .md-nav__list .md-nav__item::before {
+  content: "";
+  position: absolute;
+  left: -1rem;
+  top: 0.75rem;
+  width: 0.75rem;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.md-nav__list .md-nav__list .md-nav__item {
+  position: relative;
+}
+
+/* Prevent ALL text transformation in nav */
+.md-nav__link,
+.md-nav__title,
+.md-nav__item,
+.md-nav {
+  text-transform: none !important;
+  font-variant: none !important;
+  font-variant-caps: none !important;
+}
