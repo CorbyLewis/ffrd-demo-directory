@@ -1,6 +1,10 @@
 import os
 
-for dirpath, dirnames, filenames in os.walk("docs"):
+# Only the template folder mirrors a real directory structure; docs/index.md, stylesheets/
+# and javascripts/ are site files and must keep their own titles.
+ROOT = os.path.join("docs", "basin-name")
+
+for dirpath, dirnames, filenames in os.walk(ROOT):
     pages_file = os.path.join(dirpath, ".pages")
     folder_name = os.path.basename(dirpath)
     if os.path.exists(pages_file):

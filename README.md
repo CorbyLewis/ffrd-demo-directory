@@ -1,4 +1,31 @@
 # ffrd-demo-directory
-Demo of standard directory structure for FFRD projects with descriptions
 
-https://corbylewis.github.io/ffrd-demo-directory/
+Demo of the standard directory structure for FFRD projects, with a description of what
+belongs in each folder.
+
+Site: https://corbylewis.github.io/ffrd-demo-directory/
+
+## How it works
+
+- `docs/basin-name/` is the template. Each folder holds an `index.md` describing its
+  intended use, and a `.pages` file that keeps the sidebar title equal to the folder name.
+  Every folder has an `index.md`, so no placeholder files are needed to keep folders in git.
+- `hooks/ffrd_site.py` runs on every build and generates, without touching `docs/`:
+  - `assets/tree.json`, which feeds the interactive folder browser on the home page
+    (`docs/javascripts/ffrd-tree.js`);
+  - `assets/ffrd-template.zip`, the empty template. `index.md` becomes `README.md` in
+    every folder; `.pages` is left out. Empty folders survive the download because the zip
+    lists every folder explicitly and each one contains a `README.md`.
+- Settings (template folder, zip name, README name) are under `extra.ffrd` in `mkdocs.yml`.
+
+## Editing
+
+1. Write or edit the folder's `index.md`. A folder with no description yet holds the
+   placeholder text set in `mkdocs.yml` (`extra.ffrd.placeholder`); `fix_titles.py` adds it
+   to any new or heading-only page (not the template root). Text before the first `##` heading is what the
+   browser shows as the summary. A section on a parent page whose heading names a child
+   folder (for example `## HOT-FIX`) is used for that child if its own page is empty.
+2. Preview: run `serve.bat`, or `pip install -r requirements.txt` then `mkdocs serve`.
+3. Push to `main`; the workflow deploys.
+
+Add `?audit` to the home page URL to list folders that still have only the placeholder.
