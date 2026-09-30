@@ -92,23 +92,6 @@ def _to_html(md: str) -> str:
     return markdown.markdown(md, extensions=_MD_EXT) if md.strip() else ""
 
 
-def _summary(md: str, limit: int = 200) -> str:
-    """First paragraph (or first bullet) as plain text, trimmed at a sentence."""
-    blocks = [b for b in re.split(r"\n\s*\n", md.strip()) if b.strip()]
-    # skip bare headings, take the first real block
-    block = next((b for b in blocks if not b.lstrip().startswith("#")), "")
-    if re.match(r"\s*[-*+]\s", block):
-        block = re.split(r"\n\s*[-*+]\s+", "\n" + block)[1]
-    text = re.sub(r"!?\[([^\]]*)\]\([^)]*\)", r"\1", block)   # links -> text
-    text = re.sub(r"[*_`]+", "", text)                          # emphasis / code
-    text = re.sub(r"\s+", " ", text).strip()
-    if len(text) <= limit:
-        return text
-    cut = text[:limit]
-    end = max(cut.rfind(". "), cut.rfind("; "))
-    return cut[: end + 1] if end > limit * 0.5 else cut[: cut.rfind(" ")] + "\u2026"
-
-
 # --------------------------------------------------------------------------- #
 # Tree
 # --------------------------------------------------------------------------- #
@@ -135,9 +118,7 @@ def _node(folder: Path, root: Path, cfg: dict, parent_sections: list) -> dict:
     return {
         "name": folder.name,
         "path": "/".join(rel.parts),
-        "url": "/".join((cfg["template_root"], *rel.parts)) + "/",
         "status": status,
-        "summary": _summary(own_md),
         "html": _to_html(own_md),
         "files": sorted(
             p.name for p in folder.iterdir()

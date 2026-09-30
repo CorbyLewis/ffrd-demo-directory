@@ -10,7 +10,7 @@
 .ffrd__audit { font-size: .72rem; color: var(--md-default-fg-color--light); }
 .ffrd__count { margin-left: auto; font-size: .72rem; color: var(--md-default-fg-color--light); }
 
-.ffrd__body { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+.ffrd__body { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 1.25rem; align-items: start; }
 
 /* tree */
 .md-typeset .ffrd__tree { max-height: 70vh; overflow: auto; margin: 0; padding: .4rem; list-style: none; border: 1px solid var(--ffrd-edge); border-radius: .2rem; }
@@ -30,7 +30,6 @@
 .ffrd__name { flex: none; font-family: var(--md-code-font-family, monospace); font-weight: 500; }
 .ffrd__leaf .ffrd__name { font-weight: 400; }
 .ffrd__row.is-hit .ffrd__name { color: var(--md-accent-fg-color); }
-.ffrd__hint { flex: 1 1 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .68rem; color: var(--md-default-fg-color--light); }
 .ffrd__flag { flex: none; padding: 0 .35rem; font-size: .62rem; border: 1px solid var(--md-default-fg-color--lighter); border-radius: .15rem; color: var(--md-default-fg-color--light); }
 
 /* description panel */

@@ -8,13 +8,14 @@ Site: https://corbylewis.github.io/ffrd-demo-directory/
 ## How it works
 
 - `docs/basin-name/` is the template. Each folder holds an `index.md` describing its
-  intended use, and a `.pages` file that keeps the sidebar title equal to the folder name.
-  Every folder has an `index.md`, so no placeholder files are needed to keep folders in git.
+  intended use. These files are data, not site pages (`exclude_docs` in `mkdocs.yml`):
+  the site is a single home page with a folder browser. Every folder has an `index.md`, so
+  no placeholder files are needed to keep folders in git.
 - `hooks/ffrd_site.py` runs on every build and generates, without touching `docs/`:
   - `assets/tree.json`, which feeds the interactive folder browser on the home page
     (`docs/javascripts/ffrd-tree.js`);
   - `assets/ffrd-template.zip`, the empty template. `index.md` becomes `README.md` in
-    every folder; `.pages` is left out. Empty folders survive the download because the zip
+    every folder. Empty folders survive the download because the zip
     lists every folder explicitly and each one contains a `README.md`.
 - Settings (template folder, zip name, README name) are under `extra.ffrd` in `mkdocs.yml`.
 

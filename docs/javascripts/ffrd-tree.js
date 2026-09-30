@@ -78,14 +78,12 @@
       total++;
       var li = el("li", "ffrd__item");
       var row, kids = null;
-      var hint = node.summary;
 
       function fill(target) {
         target.append(el("span", "ffrd__name", node.name));
         if (audit && node.status !== "own") {
           target.append(el("span", "ffrd__flag", FLAGS[node.status]));
         }
-        if (hint) target.append(el("span", "ffrd__hint", hint));
       }
 
       if (node.children.length) {
@@ -165,8 +163,6 @@
         parts.push(f);
       }
       var actions = el("p", "ffrd__actions");
-      var open = el("a", "ffrd__open", "Open full page");
-      open.href = new URL(n.url, base).href;
       var copy = el("button", "ffrd__btn", "Copy path");
       copy.type = "button";
       copy.addEventListener("click", function () {
@@ -174,7 +170,7 @@
         var done = function () { copy.textContent = "Copied"; setTimeout(function () { copy.textContent = "Copy path"; }, 1500); };
         if (navigator.clipboard) navigator.clipboard.writeText(text).then(done);
       });
-      actions.append(open, copy);
+      actions.append(copy);
       parts.push(actions);
       panel.replaceChildren.apply(panel, parts);
     }

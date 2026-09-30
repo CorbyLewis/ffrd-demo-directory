@@ -25,11 +25,9 @@ jobs:
       - name: Install MkDocs and plugins
         run: pip install -r requirements.txt
 
-      # Same two scripts serve.bat runs locally, so CI and local builds agree.
-      - name: Set section titles from folder names
-        run: |
-          python set_titles.py
-          python fix_titles.py
+      # Same script serve.bat runs locally, so CI and local builds agree.
+      - name: Fill in page titles and placeholders
+        run: python fix_titles.py
 
       # --strict fails the deploy on broken links or a missing template asset
       - name: Build and deploy

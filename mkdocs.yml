@@ -7,20 +7,10 @@ theme:
     scheme: slate
     primary: black
     accent: blue
-  features:
-    - navigation.indexes
-    - navigation.sections
-    - navigation.path        # breadcrumbs: "archive" and "hot-fix" appear in many places
-    - navigation.top
-    - search.highlight
-    - search.suggest
 
-plugins:
-  - search
-  - awesome-pages:
-      filename: .pages
-      collapse_single_pages: false
-      strict: false
+# An empty list matters: leaving "plugins" out makes MkDocs turn its search plugin on.
+# The folder filter on the home page replaces site search.
+plugins: []
 
 hooks:
   - hooks/ffrd_site.py       # builds assets/tree.json and the template zip
@@ -34,7 +24,6 @@ markdown_extensions:
   - attr_list                # lets index.md style the download button
 
 extra_css:
-  - stylesheets/extra.css
   - stylesheets/ffrd-tree.css
 
 extra_javascript:
@@ -53,3 +42,8 @@ extra:
 
 docs_dir: docs
 use_directory_urls: true
+
+# The folder descriptions are data for the browser on the home page and for the zip
+# (hooks/ffrd_site.py reads them straight from docs/), not pages of their own.
+exclude_docs: |
+  basin-name/
