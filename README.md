@@ -3,7 +3,7 @@
 Demo of the standard directory structure for FFRD projects, with a description of what
 belongs in each folder.
 
-Site: https://corbylewis.github.io/ffrd-demo-directory/
+Site: https://usace-cloud-compute.github.io/ffrd-demo-directory/
 
 ## How it works
 
