@@ -21,12 +21,14 @@ Site: https://usace-cloud-compute.github.io/ffrd-demo-directory/
 
 ## Editing
 
-1. Write or edit the folder's `index.md`. A folder with no description yet holds the
+1. Create a fork of the repository
+2. Write or edit the folder's `index.md` on a separate branch. A folder with no description yet holds the
    placeholder text set in `mkdocs.yml` (`extra.ffrd.placeholder`); `fix_titles.py` adds it
    to any new or heading-only page (not the template root). Text before the first `##` heading is what the
    browser shows as the summary. A section on a parent page whose heading names a child
    folder (for example `## HOT-FIX`) is used for that child if its own page is empty.
-2. Preview: run `serve.bat`, or `pip install -r requirements.txt` then `mkdocs serve`.
-3. Push to `main`; the workflow deploys.
+3. Preview: run `serve.bat`, or `pip install -r requirements.txt` then `mkdocs serve`.
+4. Create a pull request to the usace-cloud-compute/ffrd-demo-directory main.
+5. A repo owner will review and approve and merge into `main`; the workflow deploys.
 
 Add `?audit` to the home page URL to list folders that still have only the placeholder.
