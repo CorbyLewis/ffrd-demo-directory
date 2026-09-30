@@ -1,6 +1,6 @@
 # storm-catalog
 
-This folder contains the storm catalog for hte basin.
+This folder contains the storm catalog for the basin.
 
 The **catalog.grid** files which contain pointers to all storms in the catalog. It also includes the **transposition domain** and **watershed boundary**.
 
