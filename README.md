@@ -1,9 +1,16 @@
-# ffrd-demo-directory
+# FFRD Standard Directory and Templates
 
-Demo of the standard directory structure for FFRD projects, with a description of what
-belongs in each folder.
+This site provides:
 
-Site: https://usace-cloud-compute.github.io/ffrd-demo-directory/
+1. The standard directory structure for FFRD projects
+    - description of intent for each folder and subfolder
+    - downloadable template directory
+
+2.  FFRD SOP templates and useful tools
+     - QC Checklists, Documentation Checklists, etc
+     - Useful tools
+
+Site: https://usace-cloud-compute.github.io/ffrd-templates/
 
 ## How it works
 
