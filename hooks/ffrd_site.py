@@ -29,7 +29,7 @@ import markdown
 DEFAULTS = {
     "template_root": "basin-name",  # folder under docs/ that is the template
     "desc_file": "index.md",        # description file inside every folder
-    "zip_name": "ffrd-template.zip",
+    "zip_name": "ffrd-directory-structure.zip",
     "zip_desc_file": "README.md",   # what desc_file is renamed to inside the zip
     "zip_exclude": [".pages"],      # MkDocs plumbing, not part of the template
     "placeholder": "ffrd directory structure. see parent directory for description of intended use",

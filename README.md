@@ -14,7 +14,7 @@ Site: https://usace-cloud-compute.github.io/ffrd-demo-directory/
 - `hooks/ffrd_site.py` runs on every build and generates, without touching `docs/`:
   - `assets/tree.json`, which feeds the interactive folder browser on the home page
     (`docs/javascripts/ffrd-tree.js`);
-  - `assets/ffrd-template.zip`, the empty template. `index.md` becomes `README.md` in
+  - `assets/ffrd-directory-structure.zip`, the empty template. `index.md` becomes `README.md` in
     every folder. Empty folders survive the download because the zip
     lists every folder explicitly and each one contains a `README.md`.
   - `assets/templates-tree.json` and `assets/ffrd-templates.zip`, from `docs/ffrd-templates/`
