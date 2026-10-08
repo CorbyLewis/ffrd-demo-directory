@@ -17,7 +17,14 @@ Site: https://usace-cloud-compute.github.io/ffrd-demo-directory/
   - `assets/ffrd-template.zip`, the empty template. `index.md` becomes `README.md` in
     every folder. Empty folders survive the download because the zip
     lists every folder explicitly and each one contains a `README.md`.
-- Settings (template folder, zip name, README name) are under `extra.ffrd` in `mkdocs.yml`.
+  - `assets/templates-tree.json` and `assets/ffrd-templates.zip`, from `docs/ffrd-templates/`
+    (see below).
+- `docs/ffrd-templates/` is a separate folder of downloadable templates, unrelated to the
+  `basin-name` structure. Add folders and files there as they should appear in the download;
+  the Templates section of the home page lists them by name, and the zip contains them
+  as-is. Files and folders starting with `.` are left out, so a `.gitkeep` can hold an
+  otherwise empty folder in git.
+- Settings (template folders, zip names, README name) are under `extra.ffrd` in `mkdocs.yml`.
 
 ## Editing
 
